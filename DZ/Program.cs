@@ -26,15 +26,13 @@ namespace Domashechka
                     line = sr.ReadLine(); 
 
                     while (line != null) 
-                    {
+            {
 
                         Console.WriteLine(line); 
                         line = sr.ReadLine(); 
                     }
 
-                    sr.Close();
-                    Console.ReadLine();
-                }
+                using StreamReader reader = new StreamReader("C:\\Users\\Анна\\Desktop\\log.log", Encoding.UTF8);
 
 
                 catch (Exception e)
