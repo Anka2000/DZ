@@ -9,7 +9,8 @@ namespace Domashechka
 
         static void Main(string[] args)
         {
-
+            Zadanie.Error();
+            Console.Clear();
             Zadanie.Logi();
         }
         public static class Zadanie
@@ -21,18 +22,20 @@ namespace Domashechka
                 try
                 {
 
-                    StreamReader sr = new StreamReader("C:\\Users\\Анна\\Desktop\\log.log"); 
+                    StreamReader sr = new StreamReader("C:\\Users\\Анна\\Desktop\\log.log");
 
-                    line = sr.ReadLine(); 
+                    line = sr.ReadLine();
 
-                    while (line != null) 
-            {
+                    while (line != null)
+                    {
 
-                        Console.WriteLine(line); 
-                        line = sr.ReadLine(); 
+                        Console.WriteLine(line);
+                        line = sr.ReadLine();
                     }
 
-                using StreamReader reader = new StreamReader("C:\\Users\\Анна\\Desktop\\log.log", Encoding.UTF8);
+                    sr.Close();
+                    Console.ReadLine();
+                }
 
 
                 catch (Exception e)
@@ -42,6 +45,23 @@ namespace Domashechka
                 finally
                 {
                     Console.WriteLine("Executing finally block.");
+                }
+            }
+
+            public static void Error()
+            {
+                const string word = "Error";
+
+                using (StreamReader reader = new StreamReader("C:\\Users\\Анна\\Desktop\\log.log", Encoding.UTF8))
+                {
+                    Regex regex = new Regex("\\b" + word + "\\b", RegexOptions.IgnoreCase);
+                    string str = null;
+                    while ((str = reader.ReadLine()) != null)
+                    {
+                        if (regex.IsMatch(str))
+                            Console.WriteLine(str);
+                    }
+                    Console.ReadKey(true);
                 }
             }
 
