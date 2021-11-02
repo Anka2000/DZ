@@ -10,43 +10,11 @@ namespace Domashechka
         static void Main(string[] args)
         {
             Zadanie.Error();
-            Console.Clear();
-            Zadanie.Logi();
+
         }
         public static class Zadanie
 
         {
-            public static String line;
-            public static void Logi()
-            {
-                try
-                {
-
-                    StreamReader sr = new StreamReader("C:\\Users\\Анна\\Desktop\\log.log");
-
-                    line = sr.ReadLine();
-
-                    while (line != null)
-                    {
-
-                        Console.WriteLine(line);
-                        line = sr.ReadLine();
-                    }
-
-                    sr.Close();
-                    Console.ReadLine();
-                }
-
-
-                catch (Exception e)
-                {
-                    Console.WriteLine("Exception: " + e.Message);
-                }
-                finally
-                {
-                    Console.WriteLine("Executing finally block.");
-                }
-            }
 
             public static void Error()
             {
